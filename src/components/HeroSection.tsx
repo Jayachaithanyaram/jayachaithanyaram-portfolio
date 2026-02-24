@@ -20,7 +20,12 @@ const HeroSection = () => {
             </p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
               Hi, I'm{" "}
-              <span className="text-gradient shine-effect">
+              <span style={{
+                background: "linear-gradient(90deg, hsl(0 80% 67%), hsl(45 36% 55%))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
                 Mirappalli Jaya Chaithanya Ram
               </span>
             </h1>

@@ -1,14 +1,36 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Linkedin, Github, Send, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const { ref, isVisible } = useScrollReveal();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:jayachaithanyaram@gmail.com?subject=Portfolio Contact from ${form.name}&body=${form.message}`;
+    setSending(true);
+    try {
+      await emailjs.send(
+        "service_zyfiyun",
+        "template_1kcfmke",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        "neZ2ghAxiRJgqQktw"
+      );
+      toast({ title: "Message sent!", description: "I'll get back to you soon." });
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Failed to send", description: "Please try again or email me directly.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -66,8 +88,13 @@ const ContactSection = () => {
                 placeholder="Your Message"
                 className="w-full bg-muted/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all resize-none"
               />
-              <button type="submit" className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium hover:opacity-90 transition-all neon-glow flex items-center justify-center gap-2">
-                <Send size={18} /> Send Message
+              <button
+                type="submit"
+                disabled={sending}
+                className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium hover:opacity-90 transition-all neon-glow flex items-center justify-center gap-2 disabled:opacity-60"
+              >
+                {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+                {sending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
