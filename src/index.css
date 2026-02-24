@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +16,7 @@
     --popover: 220 20% 8%;
     --popover-foreground: 210 20% 92%;
 
-    --primary: 190 95% 55%;
+    --primary: 0 80% 67%;
     --primary-foreground: 220 20% 4%;
 
     --secondary: 220 15% 14%;
@@ -24,7 +25,7 @@
     --muted: 220 15% 12%;
     --muted-foreground: 215 15% 55%;
 
-    --accent: 200 90% 50%;
+    --accent: 45 36% 55%;
     --accent-foreground: 220 20% 4%;
 
     --destructive: 0 84% 60%;
