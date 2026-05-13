@@ -1,4 +1,4 @@
-import profileImg from "@/assets/profile.png";
+import profileImg from "@/assets/profile.jpg";
 import TypeWriter from "./TypeWriter";
 import { ArrowDown, Download, Mail } from "lucide-react";
 
