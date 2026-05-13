@@ -19,7 +19,7 @@ const AboutSection = () => {
             {/* Bio */}
             <div className="glass rounded-2xl p-8 neon-border">
               <p className="text-secondary-foreground leading-relaxed mb-6">
-                I'm a <span className="text-primary font-medium">B.Tech 3rd Year</span> student (Graduating 2027) and a passionate self-taught developer.
+               I'm a <span className="text-primary font-medium">B.Tech Final Year</span> student (Graduating 2027) and a passionate self-taught developer.
                 With freelancer experience in web development, I'm focused on{" "}
                 <span className="text-primary font-medium">MERN stack mastery</span> and building real-world scalable applications.
               </p>
