@@ -50,9 +50,13 @@ const HeroSection = () => {
 
           {/* Profile Image */}
           <div className="flex-shrink-0 order-1 lg:order-2 opacity-0 animate-fade-up" style={{ animationDelay: "0.6s" }}>
-            <div className="relative float-animation">
-              <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden neon-border border-2 pulse-glow">
-                <img src={profileImg} alt="Jaya Chaithanya Ram" className="w-full h-full object-cover" />
+            <div className="relative float-animation group">
+              <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden neon-border border-2 transition-all duration-500 group-hover:shadow-[0_0_40px_hsl(var(--primary)/0.5),0_0_80px_hsl(var(--primary)/0.25)] group-hover:border-primary/60">
+                <img 
+                  src={profileImg} 
+                  alt="Jaya Chaithanya Ram" 
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110" 
+                />
               </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none" />
             </div>
